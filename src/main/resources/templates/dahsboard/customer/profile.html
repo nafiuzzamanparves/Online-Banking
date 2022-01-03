@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+	rel='stylesheet'>
+<link rel="stylesheet"
+	th:href="@{/css/dahsboard/customer/dashboard.css}">
+<link rel="stylesheet" th:href="@{/css/dahsboard/customer/profile.css}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="sidebar close">
+		<div class="logo-details">
+			<i class='bx bxs-bank'></i> <span class="logo_name">DemoBank</span>
+		</div>
+		<ul class="nav-links">
+			<li><a href="/customer/dashboard"> <i class='bx bx-grid-alt'></i>
+					<span class="link_name">Dashboard</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/customer/dashboard">Dashboard</a></li>
+				</ul></li>
+			<li><a href="/customer/transfer"> <i
+					class='bx bx-wallet-alt'></i> <span class="link_name">Transfer</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/customer/transfer">Transfer</a></li>
+				</ul></li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-line-chart'></i> <span
+						class="link_name">Loan</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Loan</a></li>
+					<li><a href="/customer/loanRequestForm">Request</a></li>
+					<li><a href="/customer/loanDetails">Approved</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-money'></i> <span
+						class="link_name">Pay Bills</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Pay Bills</a></li>
+					<li><a href="/customer/gasBill">Gas</a></li>
+					<li><a href="/customer/electricityBill">Electricity</a></li>
+					<li><a href="/customer/billHistory">History</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"><i class='bx bx-history'></i> <span
+						class="link_name">History</span> </a> <i
+						class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">History</a></li>
+					<li><a href="/customer/debitHistory">Debit</a></li>
+					<li><a href="/customer/creditHistory">Credit</a></li>
+					<li><a href="/customer/tranferHistory">Transfer</a></li>
+				</ul>
+			</li>
+			<li><a href="/customer/profile"> <i
+					class='bx bxs-user-detail'></i> <span class="link_name">Profile</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/customer/profile">Profile</a></li>
+				</ul></li>
+			<li>
+				<div class="profile-details">
+					<div class="profile-content">
+						<a href="/customer/profile"><img src="/images/images.png"
+							alt="profileImg"></a>
+					</div>
+					<div class="name-job">
+						<div class="profile_name" th:text=${name}></div>
+					</div>
+					<a href="/customer/login"><i class='bx bx-log-out'></i></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<section class="home-section">
+		<div class="home-content">
+			<i class='bx bx-menu'></i> <span class="text"></span>
+		</div>
+		<div class="container-fluid">
+			<h3>Customer Profile</h3>
+			<table class="mx-5 my-3">
+				<tr>
+					<td class="bold">Name</td>
+					<td th:text="${customer.name}"></td>
+				</tr>
+				<tr>
+					<td class="bold">Email</td>
+					<td th:text="${customer.email}"></td>
+				</tr>
+				<tr>
+					<td class="bold">Phone</td>
+					<td th:text="${customer.phoneNo}"></td>
+				</tr>
+				<tr>
+					<td class="bold">Address</td>
+					<td th:text="${customer.address}"></td>
+				</tr>
+				<tr>
+					<td class="bold">Date Of Birth</td>
+					<td th:text="${customer.dob}"></td>
+				</tr>
+				<tr>
+					<td class="bold">National Id</td>
+					<td th:text="${customer.nid}"></td>
+				</tr>
+				<tr>
+					<td class="bold">Profession</td>
+					<td th:text="${customer.profession}"></td>
+				</tr>
+				<tr>
+					<td class="bold">Account Number</td>
+					<td th:text="${customer.accountNumber}"></td>
+				</tr>
+				<tr>
+					<td class="bold">Account Type</td>
+					<td th:text="${customer.accountType}"></td>
+				</tr>
+				<tr>
+					<td class="bold">Branch</td>
+					<td th:text="${customer.branch}"></td>
+				</tr>
+			</table>
+			<a href="/customer/changePass"><button
+					class="btn btn-primary mx-5">Change Password</button></a>
+		</div>
+	</section>
+	<script th:src="@{/css/dahsboard/customer/dashboard.js}"></script>
+</body>
+</html>

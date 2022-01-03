@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+	rel='stylesheet'>
+<link rel="stylesheet"
+	th:href="@{/css/dahsboard/employee/dashboard.css}">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+<link rel="stylesheet" href="/css/dataTables.bootstrap5.min.css" />
+<link rel="stylesheet" href="/css/demo.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="sidebar close">
+		<div class="logo-details">
+			<i class='bx bxs-bank'></i> <span class="logo_name">DemoBank</span>
+		</div>
+		<ul class="nav-links">
+			<li><a href="/employee/dashboard"> <i class='bx bx-grid-alt'></i>
+					<span class="link_name">Dashboard</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/dashboard">Dashboard</a></li>
+				</ul></li>
+			<li><a href="/employee/debit"> <i class='bx bx-layer-minus'></i>
+					<span class="link_name">Debti</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/debit">Debit</a></li>
+				</ul></li>
+			<li><a href="/employee/credit"> <i
+					class='bx bx-add-to-queue'></i> <span class="link_name">Credit</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/credit">Credit</a></li>
+				</ul></li>
+			<li><a href="/employee/approvedLoan"> <i
+					class='bx bx-donate-blood'></i> <span class="link_name">Pay
+						Loan</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/approvedLoan">Pay
+							Loan</a></li>
+				</ul></li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-user'></i> <span class="link_name">Users</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Users</a></li>
+					<li><a href="/employee/allUsers">All</a></li>
+					<li><a href="/employee/approvedUsers">Approved</a></li>
+					<li><a href="/employee/pendingUsers">Pending</a></li>
+					<li><a href="/employee/rejectedUsers">Rejected</a></li>
+				</ul>
+			</li>
+			<li><a href="/employee/profile"> <i
+					class='bx bxs-user-detail'></i> <span class="link_name">Profile</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/profile">Profile</a></li>
+				</ul></li>
+			<li>
+				<div class="profile-details">
+					<div class="profile-content">
+						<a href="/employee/profile"><img src="/images/images.png"
+							alt="profileImg"></a>
+					</div>
+					<div class="name-job">
+						<div class="profile_name" th:text=${name}></div>
+					</div>
+					<a href="/employee/login"><i class='bx bx-log-out'></i></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<section class="home-section">
+		<div class="home-content">
+			<i class='bx bx-menu'></i>
+		</div>
+		<div class="container-fluid">
+			<h3 class="mb-5 text-center">Approved loan</h3>
+			<div class="row">
+				<div class="col-md-12 mb-3">
+					<div class="card">
+						<div class="card-header">
+							<span><i class="bi bi-table me-2"></i></span> Users
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="example" class="table table-striped data-table"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Account Number</th>
+											<th>Amount</th>
+											<th>Loan Type</th>
+											<th>Profession</th>
+											<th>Monthly Bank</th>
+											<th>Details</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="loan:${loans}">
+											<td th:text=${loan.customerName} />
+											<td th:text=${loan.accountNumber} />
+											<td th:text=${loan.amount} />
+											<td th:text=${loan.loanType} />
+											<td th:text=${loan.profession} />
+											<td th:text=${loan.monthlyPay} />
+											<td>
+												<form action="loanDetails">
+													<input type="hidden" th:value="${loan.accountNumber}"
+														name="accountNumber"> <input type="submit"
+														value="Details" class="btn btn-info">
+												</form>
+											</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th>Name</th>
+											<th>Account Number</th>
+											<th>Amount</th>
+											<th>Loan Type</th>
+											<th>Profession</th>
+											<th>Monthly Bank</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<script th:src="@{/css/dahsboard/employee/dashboard.js}"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+	<script src="/js/jquery-3.5.1.js"></script>
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.bootstrap5.min.js"></script>
+	<script src="/js/script.js"></script>
+</body>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+	rel='stylesheet'>
+<link rel="stylesheet" th:href="@{/css/dahsboard/manager/dashboard.css}">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+<link rel="stylesheet" href="/css/dataTables.bootstrap5.min.css" />
+<link rel="stylesheet" href="/css/demo.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="sidebar close">
+		<div class="logo-details">
+			<i class='bx bxs-bank'></i> <span class="logo_name">DemoBank</span>
+		</div>
+		<ul class="nav-links">
+			<li><a href="/manager/dashboard"> <i class='bx bx-grid-alt'></i>
+					<span class="link_name">Dashboard</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/manager/dashboard">Dashboard</a></li>
+				</ul></li>
+			<li><a href="/manager/debit"> <i class='bx bx-layer-minus'></i>
+					<span class="link_name">Debti</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/manager/debit">Debit</a></li>
+				</ul></li>
+			<li><a href="/manager/credit"> <i class='bx bx-add-to-queue'></i>
+					<span class="link_name">Credit</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/manager/credit">Credit</a></li>
+				</ul></li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-donate-blood'></i> <span
+						class="link_name">Loans</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Loans</a></li>
+					<li><a href="/manager/allLoan">All</a></li>
+					<li><a href="/manager/approvedLoan">Approved</a></li>
+					<li><a href="/manager/pendingLoan">Pending</a></li>
+					<li><a href="/manager/rejectedLoan">Rejected</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-user'></i> <span class="link_name">Users</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Users</a></li>
+					<li><a href="/manager/allUsers">All</a></li>
+					<li><a href="/manager/approvedUsers">Approved</a></li>
+					<li><a href="/manager/pendingUsers">Pending</a></li>
+					<li><a href="/manager/rejectedUsers">Rejected</a></li>
+				</ul>
+			</li>
+			<li><a href="/manager/report"> <i class='bx bxs-report'></i>
+					<span class="link_name">Report</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/manager/report">Report</a></li>
+				</ul></li>
+			<li><a href="/manager/profile"> <i
+					class='bx bxs-user-detail'></i> <span class="link_name">Profile</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/manager/profile">Profile</a></li>
+				</ul></li>
+			<li>
+				<div class="profile-details">
+					<div class="profile-content">
+						<a href="/manager/profile"><img src="/images/images.png"
+							alt="profileImg"></a>
+					</div>
+					<div class="name-job">
+						<div class="profile_name" th:text=${name}>X</div>
+					</div>
+					<a href="/manager/login"><i class='bx bx-log-out'></i></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<section class="home-section">
+		<div class="home-content">
+			<i class='bx bx-menu'></i>
+		</div>
+		<div class="container-fluid">
+			<form action="byBetweenDate" method="post">
+				<div class="row mx-5">
+					<div class="col">
+						<label>Start Date</label> <input type="date" class="form-control" name="dob">
+					</div>
+					<div class="col">
+						<label>End Date</label> <input type="date" class="form-control" name="joiningDate">
+					</div>
+					<div class="col">
+						<input type="submit" value="Generate" class="btn btn-info mt-4">
+					</div>
+				</div>
+			</form>
+			<hr>
+			<form action="byBetweenDateAndAccount" method="post">
+				<div class="row mx-5">
+					<div class="col">
+						<label>Account Number</label> <input type="text"
+							class="form-control" name="nid">
+					</div>
+					<div class="col">
+						<label>Start Date</label> <input type="date" class="form-control" name="dob">
+					</div>
+					<div class="col">
+						<label>End Date</label> <input type="date" class="form-control" name="joiningDate">
+					</div>
+					<div class="col">
+						<input type="submit" value="Generate" class="btn btn-info mt-4">
+					</div>
+				</div>
+			</form>
+			<hr>
+			<form action="byAccountNumber" method="post">
+				<div class="row mx-5">
+					<div class="col">
+						<label>Account Number</label> <input type="text"
+							class="form-control" name="accountNumber">
+					</div>
+					<div class="col">
+						<input type="submit" value="Generate" class="btn btn-info mt-4">
+					</div>
+				</div>
+			</form>
+			<hr>
+			<div class="row">
+				<div class="col-md-12 mb-3">
+					<div class="card">
+						<div class="card-header">
+							<span><i class="bi bi-table me-2"></i></span> Users
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="example" class="table table-striped data-table"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>Account Number</th>
+											<th>Amount</th>
+											<th>Credit</th>
+											<th>Debit</th>
+											<th>Date</th>
+											<th>Time</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="history:${histories}">
+											<td th:text=${history.accountNumber} />
+											<td th:text=${history.amount} />
+											<td th:text=${history.credit} />
+											<td th:text=${history.debit} />
+											<td th:text=${history.date} />
+											<td th:text=${history.timeTwo} />
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th>Account Number</th>
+											<th>Amount</th>
+											<th>Credit</th>
+											<th>Debit</th>
+											<th>Date</th>
+											<th>Time</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script th:src="@{/css/dahsboard/employee/dashboard.js}"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+	<script src="/js/jquery-3.5.1.js"></script>
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.bootstrap5.min.js"></script>
+	<script src="/js/script.js"></script>
+</body>
+</html>

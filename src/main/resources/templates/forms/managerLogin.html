@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/forms/managerLogin.css}">
+</head>
+<body>
+	<div class="container">
+		<h3>Manager Login</h3>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<form action="dashboard" method="post">
+						<div class="mb-3">
+							<label class="form-label">Manager Id</label> <input type="text"
+								class="form-control" placeholder="Manager Id" name="managerId">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Password</label> <input type="password"
+								class="form-control" placeholder="Password" name="password">
+						</div>
+						<button type="submit" class="btn btn-primary">Login</button>
+					</form>
+					<!-- <p>
+						Or <a th:href="@{registration}">Create Manager</a>
+					</p> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<form action="customer/login" method="post">
+					<input type="submit" value="Customer Login">
+				</form>
+			</div>
+			<div class="col">
+				<form action="employee/login" method="post">
+					<input type="submit" value="Employee Login">
+				</form>
+			</div>
+			<div class="col">
+				<form action="manager/login" method="post">
+					<input type="submit" value="Manager Login">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

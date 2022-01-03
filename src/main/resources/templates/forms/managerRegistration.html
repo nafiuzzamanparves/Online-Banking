@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/forms/managerRegistration.css}">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<form action="addManager" method="post">
+						<div class="mb-3">
+							<label class="form-label">Name</label> 
+							<input type="text" class="form-control" placeholder="Name" name="name">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Email</label> 
+							<input type="text" class="form-control" placeholder="Email" name="email">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Phone </label> 
+							<input type="text" class="form-control" placeholder="Phone Number" name="phoneNo">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Address</label> 
+							<input type="text" class="form-control" placeholder="Name" name="address">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">NID</label> 
+							<input type="text" class="form-control" placeholder="NID" name="nid">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Date of Birth</label> 
+							<input type="date" class="form-control" placeholder="Date of Birth" name="dob">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Joining Date</label> 
+							<input type="date" class="form-control" placeholder="Joining Date" name="joiningDate">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Manager Id</label> 
+							<input type="text" class="form-control" placeholder="Manager Id" name="managerId">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Password</label> 
+							<input type="text" class="form-control" placeholder="Password" name="password">
+						</div>						
+						<button type="submit" class="btn btn-primary">Add Manager</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

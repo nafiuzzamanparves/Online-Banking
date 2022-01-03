@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+	rel='stylesheet'>
+<link rel="stylesheet"
+	th:href="@{/css/dahsboard/employee/dashboard.css}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="sidebar close">
+		<div class="logo-details">
+			<i class='bx bxs-bank'></i> <span class="logo_name">DemoBank</span>
+		</div>
+		<ul class="nav-links">
+			<li><a href="/employee/dashboard"> <i class='bx bx-grid-alt'></i>
+					<span class="link_name">Dashboard</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/dashboard">Dashboard</a></li>
+				</ul></li>
+			<li><a href="/employee/debit"> <i class='bx bx-layer-minus'></i>
+					<span class="link_name">Debti</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/debit">Debit</a></li>
+				</ul></li>
+			<li><a href="/employee/credit"> <i
+					class='bx bx-add-to-queue'></i> <span class="link_name">Credit</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/credit">Credit</a></li>
+				</ul></li>
+			<li><a href="/employee/approvedLoan"> <i
+					class='bx bx-donate-blood'></i> <span class="link_name">Pay
+						Loan</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/approvedLoan">Pay
+							Loan</a></li>
+				</ul></li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-user'></i> <span class="link_name">Users</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Users</a></li>
+					<li><a href="/employee/allUsers">All</a></li>
+					<li><a href="/employee/approvedUsers">Approved</a></li>
+					<li><a href="/employee/pendingUsers">Pending</a></li>
+					<li><a href="/employee/rejectedUsers">Rejected</a></li>
+				</ul>
+			</li>
+			<li><a href="/employee/profile"> <i
+					class='bx bxs-user-detail'></i> <span class="link_name">Profile</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="/employee/profile">Profile</a></li>
+				</ul></li>
+			<li>
+				<div class="profile-details">
+					<div class="profile-content">
+						<a href="/employee/profile"><img src="/images/images.png"
+							alt="profileImg"></a>
+					</div>
+					<div class="name-job">
+						<div class="profile_name" th:text=${name}></div>
+					</div>
+					<a href="/employee/login"><i class='bx bx-log-out'></i></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<section class="home-section">
+		<div class="home-content">
+			<i class='bx bx-menu'></i>
+		</div>
+		<div class="container-fluid">
+			<h3 class="mb-5 text-center">All Users</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Phone</th>
+						<th scope="col">Address</th>
+						<th scope="col">Nid</th>
+						<th scope="col">Dob</th>
+						<th scope="col">Profession</th>
+						<th scope="col">Type</th>
+						<th scope="col">Branch</th>
+						<th scope="col">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="customer:${cusList}">
+						<td th:text=${customer.name} />
+						<td th:text=${customer.email} />
+						<td th:text=${customer.phoneNo} />
+						<td th:text=${customer.address} />
+						<td th:text=${customer.nid} />
+						<td th:text=${customer.dob} />
+						<td th:text=${customer.profession} />
+						<td th:text=${customer.accountType} />
+						<td th:text=${customer.branch} />
+						<td th:text=${customer.empApproveStatus} />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<script th:src="@{/css/dahsboard/employee/dashboard.js}"></script>
+</body>
+</html>
